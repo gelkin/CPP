@@ -1,0 +1,14 @@
+# Makefile for unit tests: set_testing
+
+LIBS=-lboost_unit_test_framework
+
+
+test: test.o set.o
+	g++ $(LIBS) test.o set.o -o test
+test.o: test.cpp set.h
+	g++ -c test.cpp
+set.o: set.cpp set.h
+	g++ -c set.cpp
+
+clean:
+	rm -rf *.o
